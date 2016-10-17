@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>Meet BB!</title>
+		<title>BB - The Bot for your Bots</title>
 		<meta name="author" content="Christopher Little">
 		<meta name="description" content="BB - There's a bot for that">
 		<meta name="keywords" content="BB bot chatbot">
@@ -14,24 +14,31 @@
 				margin:0;
 				padding:0;
 				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%);
-				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%), url("http://rondesignlab.com/prominent/assets/img/decore/banner_background.jpg");
-				background-size: 100%;
+				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%), url("http://rondesignlab.com/prominent/assets/img/decore/banner_background.jpg") no-repeat center center fixed;
+
+  				background-size: cover;
+			}
+			#main {
+			    height: 100vh;
+			    width: 100vw;
+			    overflow: hidden;
+			    position: relative;
 			}
 
-			#main {
-				height:100vh;
-			}
 			.mac 	{
-			    width: 70%;
+			    width: 125%;
+			    left:-12.5%;
 			    position: absolute;
 			    bottom: 0;
 			}
 			.copy {
-				width:35%;
-				right:0;
+				padding:5%;
+				width:90%;
+				top:0;
 				position:absolute;
-				height:100%;
+				height:50%;
 				display:table;
+    			text-align: center;
 			}
 			.copy div {
 				display:table-cell;
@@ -41,14 +48,44 @@
 
 				color: rgb(255, 255, 255);
 				font-family: Roboto, sans-serif;
-				font-size: 65px;
+				font-size: 4em;
 				font-weight: 300;
 			}
 
 			h2 {
-				font-size:30px;
+				font-size:2em;
 			}
 
+			.copy{
+				font-size: 7px;
+			}
+			@media (min-width: 321px) and (min-height: 321px) {
+				.copy{
+					font-size:10px;
+				}
+			}
+			@media (min-width: 500px) and (min-height: 500px) {
+				.copy{
+					font-size:16px;
+				}
+			}
+			@media all and (orientation:landscape) {
+				.mac {
+					left:0;
+				    width: 70%;
+				    position: absolute;
+				    bottom: 0;
+				}
+				.copy {
+					padding:0;
+					width:33%;
+					right:1%;
+					position:absolute;
+					height:100%;
+					display:table;
+    				text-align: left;
+				}
+			}
 			/* Button Code */
 
 			.btn {
@@ -283,6 +320,15 @@
 	<body>
 	
 		<div id="main">
+			<div class="copy">
+				<div>
+	                <h1>There's a bot for that.</h1>
+	                <h2>
+	           			Let BB help you find it.
+	                </h2>
+	                <button type="button" class="btn btn-primary">Join the Waiting List</button>
+	            </div>
+			</div>
 			<div class="mac">
 			<!-- Add or remove "with-glare" class. Removing the glare makes the screen interactive -->
 				<div class="css-mb with-glare">
@@ -311,15 +357,6 @@
 				</div>
 			</div>
 			
-			<div class="copy">
-				<div>
-	                <h1>There's a bot for that.</h1>
-	                <h2>
-	           			Let BB help you find it.
-	                </h2>
-	                <button type="button" class="btn btn-primary">Join the Waiting List</button>
-	            </div>
-			</div>
 		</main>
 		<script type="text/javascript">
 			function autorun()
