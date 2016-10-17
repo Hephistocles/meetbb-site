@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Meet BB!</title>
+		<meta name="author" content="Christopher Little">
+		<meta name="description" content="BB - There's a bot for that">
+		<meta name="keywords" content="BB bot chatbot">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
+		<style type="text/css">
+			body {
+				margin:0;
+				padding:0;
+				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%);
+				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%), url("http://rondesignlab.com/prominent/assets/img/decore/banner_background.jpg");
+				background-size: 100%;
+			}
+
+			#main {
+				height:100vh;
+			}
+			.mac 	{
+			    width: 70%;
+			    position: absolute;
+			    bottom: 0;
+			}
+			.copy {
+				width:35%;
+				right:0;
+				position:absolute;
+				height:100%;
+				display:table;
+			}
+			.copy div {
+				display:table-cell;
+				vertical-align: middle;
+			}
+			h1, h2 {
+
+				color: rgb(255, 255, 255);
+				font-family: Roboto, sans-serif;
+				font-size: 65px;
+				font-weight: 300;
+			}
+
+			h2 {
+				font-size:30px;
+			}
+
+			/* Button Code */
+
+			.btn {
+
+			    border-color: #fa6b5b;
+			    background-color: #fa6b5b;
+			    overflow: hidden;
+			    padding: 18px 38px;
+			    border: 2px #fff solid;
+			    border-radius: 32px;
+			    color: #fff;
+			    font-size: 19px;
+			    font-weight: 400;
+			    line-height: 1;
+			    text-transform: uppercase;
+			    position: relative;
+			    z-index: 1;
+			    -webkit-transition: border-color 0.5s, color 0.5s;
+			    transition: border-color 0.5s, color 0.5s;
+			    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+			    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+			}
+
+			.btn:hover {
+			    -webkit-transition: 0s background-color 0.4s;
+			    -moz-transition: 0s background-color 0.4s;
+			    -o-transition: 0s background-color 0.4s;
+			    transition: 0s background-color 0.4s;
+			}
+
+			.btn:before {
+			    content: '';
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 150%;
+			    height: 100%;
+			    background: #37474f;
+			    z-index: -1;
+			    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+			    transition: transform 0.5s, opacity 0.5s, background-color 0.5s;
+			    transform-origin: 0% 100%;
+			    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+			    -webkit-transform-origin: 0% 100%;
+			    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s, background-color 0.5s;
+			}
+
+			.btn:hover:before {
+			    opacity: 1;
+			    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+			    transform: rotate3d(0, 0, 1, 0deg);
+			    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+			    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+			}
+
+			.btn.active.focus, 
+			.btn.active:focus, 
+			.btn.focus, 
+			.btn:active.focus, 
+			.btn:active:focus, 
+			.btn:focus {
+			    outline: none;
+			}
+
+			/*
+			  Responsive CSS MacBook Retina Mockup by Henri Peetsmann
+			  http://codepen.io/henripeetsmann/
+			*/
+
+
+			.css-mb div {
+			  box-sizing: border-box !important; /* Just in case */
+			}
+
+			/* Center the display */
+			.css-mb .mb-display-position {
+			  width: 80%;
+			  margin: 0 auto;
+			}
+
+			/* The display */
+			.css-mb .mb-display {
+			  position: relative;
+			  width: 100%;
+			  height: 0;
+			  padding-bottom: 65.9442%;
+			  background: #373435;
+			  
+			  -webkit-border-top-left-radius:  3.5% 5.3075%;
+			      -moz-border-radius-topleft:  3.5% 5.3075%;
+			          border-top-left-radius:  3.5% 5.3075%;
+			  
+			  -webkit-border-top-right-radius: 3.5% 5.3075%;
+			      -moz-border-radius-toptight: 3.5% 5.3075%;
+			          border-top-right-radius: 3.5% 5.3075%;
+			}
+
+			/* Webcam */
+			/* Browser may not render a perfect circle */
+			.css-mb .mb-display:before {
+			  content: '';
+			  display: block;
+			  position: absolute;
+			  top: 3%;
+			  left: 50%;
+			  width: 1%;
+			  height: 1.5164%;
+			  margin-left: -0.5%;
+			  border-radius: 50%;
+			  background: #525252;
+			}
+
+			/* Glare */
+			/* Browser may not render the top and right offset evenly */
+			.css-mb .mb-display:after {
+			  content: '';
+			  display: none;
+			  position: absolute;
+			  right: 0.4%;
+			  top: 0.64%; 
+			  width: 62.5%;
+			  height: 100%;
+			  
+			  background: none; /* Hide the gradient on older browsers */
+			  background:    -moz-linear-gradient(55deg, rgba(0,0,0,0) 61%, rgba(255,255,255,0.05) 61%); /* FF3.6+ */
+			  background: -webkit-linear-gradient(36deg, rgba(0,0,0,0) 61%, rgba(255,255,255,0.05) 61%); /* Chrome10+ and Safari5.1+ compute the degree differently */
+			  background:      -o-linear-gradient(55deg, rgba(0,0,0,0) 61%, rgba(255,255,255,0.05) 61%); /* Opera 11.10+ */
+			  background:     -ms-linear-gradient(55deg, rgba(0,0,0,0) 61%, rgba(255,255,255,0.05) 61%); /* IE10+ */
+			  background:         linear-gradient(55deg, rgba(0,0,0,0) 61%, rgba(255,255,255,0.05) 61%);
+			  
+			  -webkit-border-top-right-radius: 5.3075%;
+			      -moz-border-radius-toptight: 5.3075%;
+			          border-top-right-radius: 5.3075%;
+			}
+
+			/* Only show glare, if the class is applied */
+			.css-mb.with-glare .mb-display:after { display: block; }
+
+			/* Position the screen and give make it the right size, ratio 16:10 */
+			.css-mb .mb-screen-position {
+			  position: absolute;
+			  top: 6.5%;
+			  width: 93.2%;
+			  left: 3.4%;
+			  height: 0;
+			  margin: 0;
+			  padding-bottom: 58.25%; /* Ratio */
+			}
+
+			/* Give parent (this element) a "height", so that child elements can use height: 100%;*/
+			.css-mb .mb-screen {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  overflow: hidden;
+			  background: #4b4b4d; /* bg color if content is not big enough, or rendering is off */
+			}
+
+			/* Image on the screen */
+			.css-mb .mb-screen img {
+			  max-width: 100%;
+			  height: auto;
+			}
+
+			/* Iframe on the screen */
+			.css-mb .mb-screen iframe {
+			  width: 100%;
+			  height: 100%;
+			  border: 0;
+			}
+
+			/* Macbook body */
+			.css-mb .mb-body {
+			  position: relative;
+			  width: 100%;
+			  height: 0;
+			  padding-bottom: 2.3%;
+			  background: #e6e7e8;
+			}
+
+			/* The groove */
+			.css-mb .mb-body:before {
+			  content: '';
+			  display: block;
+			  position: absolute;
+			  top: 0;
+			  left: 50%;
+			  width: 14.0740%;
+			  height: 0;
+			  padding-bottom: 1.4814%;
+			  margin-left: -7.037%;
+			  background: #a9abae;
+			  
+			  -webkit-border-bottom-left-radius:  7.0370% 50%;
+			      -moz-border-radius-bottomleft:  7.0370% 50%;
+			          border-bottom-left-radius:  7.0370% 50%;
+			  
+			  -webkit-border-bottom-right-radius: 7.0370% 50%;
+			      -moz-border-radius-bottomtight: 7.0370% 50%;
+			          border-bottom-right-radius: 7.0370% 50%;  
+			}
+
+			/* Macbook bottom */
+			.css-mb .mb-bottom-cover {
+			  width: 100%;
+			  height: 0;
+			  padding-bottom: 0.7407%;
+			  background: #a9abae;
+			  
+			  -webkit-border-bottom-left-radius:  12% 600%;
+			      -moz-border-radius-bottomleft:  12% 600%;
+			          border-bottom-left-radius:  12% 600%;
+			  
+			  -webkit-border-bottom-right-radius: 12% 600%;
+			      -moz-border-radius-bottomtight: 12% 600%;
+			          border-bottom-right-radius: 12% 600%; 
+			}		
+		</style>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-85832446-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+	
+		<div id="main">
+			<div class="mac">
+			<!-- Add or remove "with-glare" class. Removing the glare makes the screen interactive -->
+				<div class="css-mb with-glare">
+				  <div class="mb-display-position">
+				    <div class="mb-display">
+				      <div class="mb-screen-position">
+				        <div class="mb-screen">
+				        
+				          <!-- Image (aspect 16:10 recommended, but not required). You might also want to change or remove the background color, in case the picture is not big enough, or rendering is off  -->
+				          <!-- <img src="https://unsplash.imgix.net/photo-1418479631014-8cbf89db3431?fit=crop&fm=jpg&h=500&q=75&w=800" alt="example image" /> -->
+				          <!-- Image By André Freitas from unsplash.com -->
+
+				          <!-- Youtube - don't forget to remove glare -->
+				          <iframe width="960" height="480" src="http://www.youtube.com/embed/GUEZCxBcM78?rel=0&amp;showinfo=0&amp;iv_load_policy=3&amp;controls=2" frameborder="0"></iframe>
+				          <!-- Notice: Youtube has some toruble with embed players and gives consol errors -->
+
+				          <!-- Iframe, simple website - don't forget to remove glare -->
+				          <!-- <iframe src="http://example.com" frameborder="0"></iframe> -->
+				          
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="mb-body"></div>
+				  <div class="mb-bottom-cover"></div>
+				</div>
+			</div>
+			
+			<div class="copy">
+				<div>
+	                <h1>There's a bot for that.</h1>
+	                <h2>
+	           			Let BB help you find it.
+	                </h2>
+	                <button type="button" class="btn btn-primary">Join the Waiting List</button>
+	            </div>
+			</div>
+		</main>
+		<script type="text/javascript">
+			function autorun()
+			{
+	
+			}
+			if (window.addEventListener) window.addEventListener("load", autorun, false);
+			else if (window.attachEvent) window.attachEvent("onload", autorun);
+			else window.onload = autorun;
+		</script>
+	</body>
+</html>
