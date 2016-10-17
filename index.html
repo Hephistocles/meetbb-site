@@ -7,7 +7,7 @@
 		<meta name="author" content="Christopher Little">
 		<meta name="description" content="BB - There's a bot for that">
 		<meta name="keywords" content="BB bot chatbot">
-		<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 
 		<style type="text/css">
 			body {
@@ -17,6 +17,9 @@
 				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%), url("http://rondesignlab.com/prominent/assets/img/decore/banner_background.jpg") no-repeat center center fixed;
 
   				background-size: cover;
+
+				color: rgb(255, 255, 255);
+				font-family: Roboto, sans-serif;
 			}
 			#main {
 			    height: 100vh;
@@ -45,9 +48,6 @@
 				vertical-align: middle;
 			}
 			h1, h2 {
-
-				color: rgb(255, 255, 255);
-				font-family: Roboto, sans-serif;
 				font-size: 4em;
 				font-weight: 300;
 			}
@@ -89,7 +89,7 @@
 			/* Button Code */
 
 			.btn {
-
+				cursor:pointer;
 			    border-color: #fa6b5b;
 			    background-color: #fa6b5b;
 			    overflow: hidden;
@@ -305,6 +305,96 @@
 			      -moz-border-radius-bottomtight: 12% 600%;
 			          border-bottom-right-radius: 12% 600%; 
 			}		
+			/* Form styles */
+
+			#modal{
+			    position: absolute;
+			    width: 100vw;
+			    height: 100vh;
+			    background: white;
+			    top: 0;
+			    left: 0;
+			    opacity: 0;
+			    visibility: hidden;
+			    transition: opacity 500ms;
+			    z-index:1;
+			}
+			#modal.active {
+			    opacity: 1;
+			    visibility: visible;
+			}
+			form {
+				text-align:center;
+			background-color: #F8A434;
+			  width: 450px;
+			  margin: 17% auto;
+			  padding:30px;
+			  border-radius:4px;
+			}
+
+
+			.header {
+			  font-size: 35px;
+			  text-transform: uppercase;
+			  letter-spacing: 5px;
+			}
+
+
+			.description {
+			  font-size: 14px;
+			  letter-spacing: 1px;
+			  line-height: 1.3em;
+			  margin: -2px 0 45px;
+			}
+
+
+			.input {
+			  display: flex;
+			  align-items: center;
+			}
+
+
+			.button {
+			  height: 44px;
+			  border: none;
+			}
+
+			  
+			#mce-EMAIL {
+			  width: 75%;
+			  background: #FDFCFB;
+			  font-family: inherit;
+			  color: #737373;
+			  letter-spacing: 1px;
+			  text-indent: 5%;
+			  border-radius: 5px 0 0 5px;
+			}
+
+
+			#mc-embedded-subscribe {
+			  width: 25%;
+			  height: 46px;
+			  background: #E86C8D;
+			  font-family: inherit;
+			  font-weight: bold;
+			  color: inherit;
+			  letter-spacing: 1px;
+			  border-radius: 0 5px 5px 0;
+			  cursor: pointer;
+			  transition: background .3s ease-in-out;
+			}
+			  
+
+			#mc-embedded-subscribe:hover {
+			  background: #d45d7d;
+			}
+			  
+
+			input:focus {
+			  outline: none;
+			  outline: 2px solid #E86C8D;
+			  box-shadow: 0 0 2px #E86C8D;
+			}
 		</style>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -316,6 +406,11 @@
 		  ga('send', 'pageview');
 
 		</script>
+		<script type="text/javascript">
+			function signup() {
+				document.getElementById("modal").classList.add("active");
+			}
+		</script>
 	</head>
 	<body>
 	
@@ -326,7 +421,7 @@
 	                <h2>
 	           			Let BB help you find it.
 	                </h2>
-	                <button type="button" class="btn btn-primary">Join the Waiting List</button>
+	                <button onclick="signup()" type="button" class="btn btn-primary">Join the Waiting List</button>
 	            </div>
 			</div>
 			<div class="mac">
@@ -357,7 +452,22 @@
 				</div>
 			</div>
 			
-		</main>
+		</div>
+		<div id="modal">
+			<form action="https://meetbb.us14.list-manage.com/subscribe/post?u=491a42de9f408409aa90d794e&amp;id=c018cb038a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+				<div class="description">
+					<h2>SIGN UP FOR BETA</h3>
+					<p>If you'd like to help us test BB out, then sign up below to get exclusive access when it's ready.</p>
+				</div>
+				<div class="input">
+					<input type="email" placeholder="NAME@EXAMPLE.COM" name="EMAIL" class="required email button" id="mce-EMAIL">
+					<input type="submit" class="button" name="subscribe" id="mc-embedded-subscribe" value="SIGN UP">
+				</div>
+			</form>
+		</div>
+
+<!--End mc_embed_signup-->
+
 		<script type="text/javascript">
 			function autorun()
 			{
