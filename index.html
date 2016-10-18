@@ -13,11 +13,22 @@
 			body {
 				margin:0;
 				padding:0;
+			
+			
+				background: #525252; /* fallback for old browsers */
+				background: rgba(100,100,100,0.5); /* fallback for old browsers */
+				background: rgba(100,100,100,0.5), url("photo3.jpg") no-repeat center center fixed; /* fallback for old browsers */
+				background: -webkit-linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)); /* Chrome 10-25, Safari 5.1-6 */
+				background: -webkit-linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("photo3.jpg") no-repeat center center fixed; /* Chrome 10-25, Safari 5.1-6 */
+				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("photo3.jpg") no-repeat center center fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("photo3.jpg") no-repeat center center fixed
+				        /*
 				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%);
-				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%), url("http://rondesignlab.com/prominent/assets/img/decore/banner_background.jpg") no-repeat center center fixed;
-
-  				background-size: cover;
-
+				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%), url("photo1.jpg") no-repeat center center fixed;
+			*/
+			  				background-size: cover;
+			
 				color: rgb(255, 255, 255);
 				font-family: Roboto, sans-serif;
 			}
@@ -42,6 +53,12 @@
 				height:50%;
 				display:table;
     			text-align: center;
+			}
+			.btn img {
+				height: 2em;
+			    vertical-align: middle;
+			    margin-right: 10px;
+			    margin-left: -10px;
 			}
 			.copy p {
 				color: rgba(255,255,255,0.6);
@@ -103,7 +120,7 @@
 			    padding: 18px 38px;
 			    border: 2px #fff solid;
 			    border-radius: 32px;
-			    color: #fff;
+			    color: #7a251b;
 			    font-size: 19px;
 			    font-weight: 400;
 			    line-height: 1;
@@ -121,31 +138,6 @@
 			    -moz-transition: 0s background-color 0.4s;
 			    -o-transition: 0s background-color 0.4s;
 			    transition: 0s background-color 0.4s;
-			}
-
-			.btn:before {
-			    content: '';
-			    position: absolute;
-			    top: 0;
-			    left: 0;
-			    width: 150%;
-			    height: 100%;
-			    background: #37474f;
-			    z-index: -1;
-			    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
-			    transition: transform 0.5s, opacity 0.5s, background-color 0.5s;
-			    transform-origin: 0% 100%;
-			    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
-			    -webkit-transform-origin: 0% 100%;
-			    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s, background-color 0.5s;
-			}
-
-			.btn:hover:before {
-			    opacity: 1;
-			    -webkit-transform: rotate3d(0, 0, 1, 0deg);
-			    transform: rotate3d(0, 0, 1, 0deg);
-			    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-			    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 			}
 
 			.btn.active.focus, 
@@ -332,7 +324,7 @@
 			}
 			form {
 				text-align:center;
-			background-color: #F8A434;
+			background-color: rgba(80, 134, 210, 1);
 			  width: 450px;
 			  margin: 17% auto;
 			  padding:30px;
@@ -391,11 +383,15 @@
 			  transition: background .3s ease-in-out;
 			}
 			  
-
-			#mc-embedded-subscribe:hover {
+ 
+			.btn {
+			  background: #E86C8D;
+			  transition: background .3s ease-in-out;
+			}
+			#mc-embedded-subscribe:hover, .btn:hover {
 			  background: #d45d7d;
 			}
-			  
+			 
 
 			input:focus {
 			  outline: none;
@@ -417,6 +413,9 @@
 			function signup() {
 				document.getElementById("modal").classList.add("active");
 			}
+			function cleanup() {
+				document.getElementById("modal").classList.remove("active")
+			}
 		</script>
 	</head>
 	<body>
@@ -428,7 +427,7 @@
 	                <h2>
 	           			Let BB help you find it.
 	                </h2>
-	                <button onclick="signup()" type="button" class="btn btn-primary">Join the Waiting List</button>
+	                <button onclick="signup()" type="button" class="btn btn-primary"><img src="bb-8.svg" alt="BB">Join the Waiting List</button>
 					<p>Or contact us directly at: <a href="mailto:hello@meetbb.co">hello@meetbb.co</a></p>
 	            </div>
 			</div>
@@ -461,8 +460,8 @@
 			</div>
 			
 		</div>
-		<div id="modal">
-			<form action="https://meetbb.us14.list-manage.com/subscribe/post?u=491a42de9f408409aa90d794e&amp;id=c018cb038a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+		<div id="modal" onclick="cleanup()"> 
+			<form onclick="var event = arguments[0] || window.event; event.stopPropagation()" action="https://meetbb.us14.list-manage.com/subscribe/post?u=491a42de9f408409aa90d794e&amp;id=c018cb038a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
 				<div class="description">
 					<h2>SIGN UP FOR BETA</h3>
 					<p>If you'd like to help us test BB out, then sign up below to get exclusive access when it's ready.</p>
