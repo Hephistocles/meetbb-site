@@ -9,6 +9,9 @@
 		<meta name="keywords" content="BB bot chatbot">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 
+		<link rel="icon" type="image/png" sizes="16x16" href="g989.png">
+		<link rel="manifest" href="manifest.json">
+		<meta name="theme-color" content="#ffffff">
 		<style type="text/css">
 			body {
 				margin:0;
@@ -17,17 +20,13 @@
 			
 				background: #525252; /* fallback for old browsers */
 				background: rgba(100,100,100,0.5); /* fallback for old browsers */
-				background: rgba(100,100,100,0.5), url("photo3.jpg") no-repeat center center fixed; /* fallback for old browsers */
+				background: rgba(100,100,100,0.5), url("https://static.pexels.com/photos/30111/pexels-photo-30111.jpg") no-repeat center center fixed; /* fallback for old browsers */
 				background: -webkit-linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)); /* Chrome 10-25, Safari 5.1-6 */
-				background: -webkit-linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("photo3.jpg") no-repeat center center fixed; /* Chrome 10-25, Safari 5.1-6 */
+				background: -webkit-linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("https://static.pexels.com/photos/30111/pexels-photo-30111.jpg") no-repeat center center fixed; /* Chrome 10-25, Safari 5.1-6 */
 				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("photo3.jpg") no-repeat center center fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("photo3.jpg") no-repeat center center fixed
-				        /*
-				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%);
-				background: linear-gradient(90deg, rgba(250, 107, 91, 0.8) 0%, rgba(163, 52, 130, 0.8) 100%), url("photo1.jpg") no-repeat center center fixed;
-			*/
-			  				background-size: cover;
+				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("https://static.pexels.com/photos/30111/pexels-photo-30111.jpg") no-repeat center center fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+				background: linear-gradient(to left, rgba(100,100,100,0.5) , rgba(80, 134, 210, 0.5)), url("https://static.pexels.com/photos/30111/pexels-photo-30111.jpg") no-repeat center center fixed;
+				background-size: cover;
 			
 				color: rgb(255, 255, 255);
 				font-family: Roboto, sans-serif;
@@ -55,10 +54,10 @@
     			text-align: center;
 			}
 			.btn img {
-				height: 2em;
-			    vertical-align: middle;
-			    margin-right: 10px;
-			    margin-left: -10px;
+			    height: 1.8em;
+			    position: absolute;
+			    bottom: 0;
+			    left: 5px;
 			}
 			.copy p {
 				color: rgba(255,255,255,0.6);
@@ -412,6 +411,21 @@
 		<script type="text/javascript">
 			function signup() {
 				document.getElementById("modal").classList.add("active");
+				ga('send', {
+				  hitType: 'event',
+				  eventCategory: 'Signup',
+				  eventAction: 'button',
+				  eventLabel: 'Hit Button'
+				});
+			}
+			function submit() {
+				console.log("Signed up")
+				ga('send', {
+				  hitType: 'event',
+				  eventCategory: 'Signup',
+				  eventAction: 'submit',
+				  eventLabel: 'Submitted Email'
+				});
 			}
 			function cleanup() {
 				document.getElementById("modal").classList.remove("active")
@@ -427,7 +441,7 @@
 	                <h2>
 	           			Let BB help you find it.
 	                </h2>
-	                <button onclick="signup()" type="button" class="btn btn-primary"><img src="bb-8.svg" alt="BB">Join the Waiting List</button>
+	                <button onclick="signup()" type="button" class="btn btn-primary"><img src="bb8c.png" alt="BB">Join the Waiting List</button>
 					<p>Or contact us directly at: <a href="mailto:hello@meetbb.co">hello@meetbb.co</a></p>
 	            </div>
 			</div>
@@ -444,7 +458,7 @@
 				          <!-- Image By André Freitas from unsplash.com -->
 
 				          <!-- Youtube - don't forget to remove glare -->
-				          <iframe width="960" height="480" src="http://www.youtube.com/embed/GUEZCxBcM78?rel=0&amp;showinfo=0&amp;iv_load_policy=3&amp;controls=2&amp;rel=0&amp;autoplay=1" frameborder="0"></iframe>
+				          <iframe width="960" height="400" src="http://www.youtube.com/embed/LlU32dmK-wY?rel=0&amp;showinfo=0&amp;iv_load_policy=3&amp;controls=2&amp;rel=0&amp;autoplay=1" frameborder="0"></iframe>
 				          <!-- Notice: Youtube has some toruble with embed players and gives consol errors -->
 
 				          <!-- Iframe, simple website - don't forget to remove glare -->
@@ -461,14 +475,14 @@
 			
 		</div>
 		<div id="modal" onclick="cleanup()"> 
-			<form onclick="var event = arguments[0] || window.event; event.stopPropagation()" action="https://meetbb.us14.list-manage.com/subscribe/post?u=491a42de9f408409aa90d794e&amp;id=c018cb038a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+			<form onsubmit="submit()" onclick="var event = arguments[0] || window.event; event.stopPropagation()" action="https://meetbb.us14.list-manage.com/subscribe/post?u=491a42de9f408409aa90d794e&amp;id=c018cb038a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
 				<div class="description">
 					<h2>SIGN UP FOR BETA</h3>
 					<p>If you'd like to help us test BB out, then sign up below to get exclusive access when it's ready.</p>
 				</div>
 				<div class="input">
 					<input type="email" placeholder="NAME@EXAMPLE.COM" name="EMAIL" class="required email button" id="mce-EMAIL">
-					<input type="submit" class="button" name="subscribe" id="mc-embedded-subscribe" value="SIGN UP">
+					<input type="submit" class="button" name="subscribe" id="mc-embedded-subscribe" value="SIGN UP" onclick="submit()">
 				</div>
 			</form>
 		</div>
